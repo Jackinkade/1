@@ -2,26 +2,35 @@
 let isNumber = function (n){
   return !isNaN(parseFloat(n) && isFinite(n))
 };
+
 alert("Hi gamer");
 alert("Are you ready?");
-let random = function (answer) {
+const getRandomNum = function (min, max) {
+    min = Math.floor(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max + min + 1)) + min;
+};
+ let random = getRandomNum(1, 100);
+
+let randomGame = function (random) {
+  let i = Boolean;
   let numb = prompt("Введите число от 1 до 100");
     if (!isNumber(numb) && numb !== null ){
       alert("Введи число!");
-        random(21);
-    }else if (answer){
-        if(numb < answer){
-          alert("Загаданное число меньше");
-            random(21)
+       
+    }else if (random){
+        if(numb > random){
+        prompt("Загаданное число меньше");
+        return randomGame(getRandomNum(1, 100));
     }
-        else if(numb > answer) {
-          alert("Загаданное число больше ")
-            random(21)
+        else if(numb < random) {
+         prompt("Загаданное число больше ");
+         return randomGame(getRandomNum(1, 100));
     }
         else {
-            alert("Ураааа!!! Правильно")
-    }
-    }
+         alert("Ураааа!!! Правильно");
+        }
+      }
   };
-
-random(21);
+randomGame(getRandomNum(1, 100));
+ alert('Спрятанное число: ' + random);
