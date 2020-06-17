@@ -5,31 +5,32 @@ let isNumber = function (n){
 
 alert("Hi gamer");
 alert("Are you ready?");
-const getRandomNum = function (min, max) {
-    min = Math.floor(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max + min + 1)) + min;
-};
- let randomm = getRandomNum();
+let number = parseInt(Math.random() * 100+1);
+
+
 
 let randomGame = function (randomm) {
 
   let numb = prompt("Введите число от 1 до 100");
     if (!isNumber(numb) && numb !== null ){
       alert("Введи число!");
-       randomGame(randomm);
-    }else if (randomm){
-        if(numb > randomm){
+       
+    }
+      else  if(numb > randomm){
         prompt("Загаданное число меньше");
          randomGame(randomm);
     }
         else if(numb < randomm) {
          prompt("Загаданное число больше ");
-         randomGame(randomm);
+        randomGame(randomm);
     }
         else {
          alert(`Ураааа!!! Правильно Число: " ${randomm }`);
+         return;
         }
-      }
-  };
-randomGame(getRandomNum(1, 100));
+        randomGame(randomm);
+      };
+      
+
+  
+randomGame(number);
